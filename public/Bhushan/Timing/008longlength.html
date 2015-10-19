@@ -1,0 +1,34 @@
+<html>
+<head>
+timing in QA - 8
+</head>
+
+<script>
+
+
+var filterLongWords = function (array, int) {
+
+	var length = array.length;
+
+	var longestWord  = [];
+
+	for(var i = 0 ; i < length ; i ++){
+
+		if (array[i].length > int) {
+
+			longestWord[longestWord.length] = array[i];
+
+		}
+	}
+
+		alert("the longest word is : " + longestWord );
+}
+
+filterLongWords(["java", "development", "web" ] , 5 );
+
+
+
+</script>
+
+</html>
+
