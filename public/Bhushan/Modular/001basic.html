@@ -1,0 +1,52 @@
+<html>
+<head>
+timing in QA - 1
+</head>
+<script>
+
+function global (number){
+	if(ValidNumber(number)){
+		if(isInt(number)){
+			if(checkNumber(number)){
+			}else{
+				return false ;
+			}
+			console.log("this is a number =" + number);
+			}
+			console.log("this is integer =" +number);
+		}
+		console.log("this is even =" +number);
+	}
+global(4);
+
+function ValidNumber(number){
+	if (!isNaN(number)) {
+		return true;
+	}else{
+		return false ;
+
+	}
+}
+
+function isInt(number){
+
+	if (number % 1 == 0) {
+		return true ;
+	}else{
+		return false;
+	}
+}
+
+function checkNumber(number){
+	if (number % 2 == 0) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+</script>
+
+</html>
+
