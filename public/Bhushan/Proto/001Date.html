@@ -1,0 +1,30 @@
+<html>
+<head>
+timing in QA - 1
+</head>
+
+<script>
+
+
+var today = new Date();
+
+Date.prototype.addHours = function(h) {
+	//var set = this.getHours();
+	this.setHours(this.getHours() + h);
+	return this;
+
+};
+
+	var date1 = new Date();
+	date1.addHours(5);
+	console.log(date1);
+
+	var date2 = new Date();
+	date2.addHours(6);
+	console.log(date2);
+
+	var date3 = new Date();
+	date3.addHours(8);
+	console.log(date3);
+
+</html>
