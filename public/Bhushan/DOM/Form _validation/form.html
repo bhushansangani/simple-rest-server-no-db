@@ -1,0 +1,141 @@
+<!-- Form Validation:
+ 
+
+Create a form with First Name, Last Name, radio buttons for Gender (Male and Female), drop down menu for State, a check box for I ACCEPT and a submit button. At the click of submit button, the following should be validated.
+
+If the First Name and Last Name fields are left blank or has a number, the background color of the text box should change to red color.
+If the Gender is not selected, alert the user to select at least one option.
+If the State is not selected, alert the user to select a state.
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title> Form Validation </title>
+	<style type="text/css">
+	.error {
+	background-color:  red;
+	}
+
+	</style>
+	 <script>
+
+		 function myFunction(){
+		 	var fn = document.getElementById("fName").value;
+		 	var ln = document.getElementById("lName").value;
+		 	var str = document.getElementById("state").value;
+
+		 	if (fn == null || fn == "" || !isNaN(fn)) {
+		 		document.getElementById("fName").className = "error";
+
+		 	}
+		 	if (ln == null || ln == "" || !isNaN(ln)) {
+		 		document.getElementById("lName").className = "error";
+		 	}
+		 	if((form.Gender[0].checked == false) && (form.Gender[1].checked == false)){
+		 		alert("please choose your specific gender");
+		 	}
+		 	if (str == "" ) {
+		 		alert("please select the state");
+		 	}
+		 	if(!form.checkBox1.checked){
+		 		alert("please select the accept button before you proceed");
+		 	}
+
+		 }
+		 function set(){
+		 	document.getElementById.reset();
+		 }
+
+	</script>
+	</head>
+
+	<body>
+		<form>
+
+		<p>First name:
+		  <input type="text" name="firstname" id= "fName"></p>
+		<p>Last name:
+		  <input type="text" name="lastname" id = "lName"></p>
+		<p> Gender:
+		  <input type="radio" name="Gender" value="male" >Male 
+	 	  <input type="radio" name="Gender" value="female">Female </p> 
+
+	 	<p> State :
+	 	 <select id = "state">
+	 	 	<option></option>
+	 	 	<option value = "PA"> PA </option>
+	 	 	<option value = "FL"> FL </option>
+	 	 	<option value = "TX"> TX </option> 
+	 	 	<option value = "MN"> MN  </option>
+	 	 	</p></select>
+
+	 	  <p><input type="checkbox" value="accept or not" id = "checkBox1"> Accept </p>
+	 	  <p><input type="button" value="Submit" onclick= "myFunction();"></p>
+	 	  <p><input type="reset" value="Reset" onclick = "reset();" /></p>
+	 	  </form>
+	 	  </body>
+	</html>
+
+ 	 <!-- <input id = "mytext">
+	<input type = "button" value = "Click" onclick = "myFunction();" /> -->
+
+<!-- <body>
+
+	<form class = "inputData">
+	First name:<br>
+	  <input type="text" name="firstname" class= "inputData">
+	  <br>
+	Last name:<br>
+	  <input type="text" name="lastname">
+	  <br><br>
+	  Gender :
+	  <br>
+	  <input id = ""
+	 <input type="radio" name="sex" value="male" >Male  <br>
+ 	 <input type="radio" name="sex" value="female">Female  <br> <br>
+
+ 	 State :
+ 	 <select>
+ 	 	<option value = "PA"> PA </option>
+ 	 	<option value = "FL"> FL </option>
+ 	 	<option value = "TX"> TX </option> 
+ 	 	<option value = "MN"> MN  </option>
+ 	 </select>
+ 	 <br>
+ 	 <br>
+ 	  <input type="checkbox" name="me" value="accept or not"> I Accept<br>
+ 	  <br>
+ 	  <input type="submit" value="Submit" />
+	</form>
+</body> -->
+
+
+
+
+	<!-- <form id="contact_form" action="http://www.123contactform.com/" method="POST" onsubmit="return validateForm();" enctype="multipart/form-data">
+
+  <div class="row">
+    <label class="required" for="name">First name:</label><br />
+    <label class="required" for="name">Last names:</label><br />
+    <input id="name" name="name" type="text" value="" size="30" /><br />
+    <span id="name_validation" class="error"></span>
+  </div> -->
+
+  
+
+ <!--  <div class="row">
+    <label class="required" for="email">Your email:</label><br />
+    <input id="email" name="email" type="text" value="" size="30" /><br />
+    <span id="email_validation" class="error"></span>
+  </div> -->
+
+  <!-- <div class="row"> -->
+  
+
+  <!--   <label class="required" for="message">Your message:</label><br />
+    <textarea id="message" name="message" rows="7" cols="30"></textarea><br />
+    <span id="message_validation" class="error"></span>
+  </div> -->
+    

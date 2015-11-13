@@ -1,0 +1,44 @@
+<!-- Have images, p tags, div tags and various other elements on the page. When the page loads, an alert saying "welcome to my blog" should pop up.
+Have several html tags on the page. Have an input button with id hideElems. When this button is clicked all the elements on the page should be hidden.
+Have an input button with id showElems. When this button is double clicked, all the elements on the page should be shown.
+Have an input button with a id and
+when you mouseover this button, the <ul> elements on the page should be shown.
+when you mouseout this button, the <ul> elements on the page should be hidden.
+ -->     
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	body{
+		text-align: center;
+	}
+	.error {
+	background-color: red; 
+	}
+	
+	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="convert.css"> -->
+	</head>
+	<title>Temparature Converter</title>
+	<p id = "hide">Write a program to convert Fahrenheit temperature to Celsius. Here are the things that needs to 
+		be implemented as a part of this question:
+		Ask the input from the user for Fahrenheit using a text field
+		As soon as the user types in the Fahrenheit number in the text field, the result should display immediately in the div below...
+		Hence, there should not be any submit button
+		Hint: Use onkeyup event. Formula is : C = (F - 32) * 5/9
+		Don't display the decimal values - but you should accept decimal values from the user
+		If the user enters any invalid values (strings) ) then you should make the input box border red and prompt user to enter correct values....
+	</p>
+	<script type="text/javascript" src="convert.js"></script>
+	<body>
+		<p>Fahrenheit: <input type = "text" id="fern" onkeyup="convert()"></p>
+		<p>Celsius: <input type = "text" id="cel" onkeyup="convert()"></p>
+		<p><input type="button" value = "clickHide" id = "press" onclick="heaven()"></p>
+		<p><input type="button" value = "clickShow" id = "pressA" ondblclick="reverse()"></p>
+		<p><input type="button" value = "MouseOver" id = "pressB" onmouseover="myOver()"></p>
+		<p><input type="button" value = "MouseOut" id = "pressC" onmouseout="myOut()"></p>
+
+
+
+	</body>
+</html>
