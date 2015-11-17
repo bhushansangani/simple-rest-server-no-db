@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> check_box example</title>
+<style type="text/css">
+</style>
+</head>
+<script type="text/javascript">
+	function myFunction(checked,total_boxes){ 
+		 for ( i=0 ; i < total_boxes ; i++ ){ 
+		   if (checked){   
+		 document.forms[0].checkBox[i].checked=true; 
+		} 
+		   else{  
+		document.forms[0].checkBox[i].checked=false; 
+		} 
+	    }   
+    } 
+
+</script>
+	<body>
+	<FORM> 
+		<input type="checkbox" name="checkBox" >one<br> 
+		<input type="checkbox" name="checkBox" >two<br> 
+		<input type="checkbox" name="checkBox" >three<br> 
+		<input type="checkbox" name="checkBox" >four<br> 
+		<input type="checkbox" name="checkBox" >five<br> 
+		<input type="checkbox" name="checkBox" >six<br> 
+		<input type="checkbox" name="checkBox" >seven<br> 
+		<input type="checkbox" name="checkBox" >eight<br> 
+		<input type="checkbox" name="checkBox" >nine<br>
+		<input type="checkbox" name="checkBox" >ten<br>  
+		<input type=button name="CheckAll" value="Select_All" onClick="myFunction(true,10)"> 
+		<input type=button name="UnCheckAll" value="UnCheck All Boxes" onClick="myFunction(false,10)"> 
+	</FORM> 
+	</body>
+</html>
