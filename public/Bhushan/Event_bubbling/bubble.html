@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title> event bubbling </title>
+</head>
+  <body>
+   <!--  <div id ="links">
+      <div href= "https://www.facebook.com/login/"> facebook.com</div>
+      <div href = "https://www.google.com/login/"> google.com</div>
+      <div  href = "https://www.youtube.com/login/"> youTube.com</div>
+      <div  href = "https://www.twitter.com/login/">twitter.com</div> 
+    </div> -->
+          <ul id="link" >
+           <li data-url="http://facebook.com">facebook.com</li>
+           <li data-url="http://google.com">google.com</li>
+           <li data-url="http://twitter.com">twitter.com</li>
+           <li data-url="http://youtube.com">youtube.com</li>
+         </ul>
+
+          <script type="text/javascript">
+            var result = document.getElementsByTagName("li");
+            console.log(result);
+
+            for (var i = 0; i < result.length; i++) {
+              result[i].addEventListener("click",addLink);
+            }
+            function addLink() {
+              console.log(this.getAttribute("data-url"));
+              window.open(this.getAttribute("data-url"),"_blank");
+            }    
+      </script>
+  </body>
+</html>
