@@ -1,0 +1,100 @@
+
+<html>
+<body>
+	<head>
+		<title> fruit visible or not </title>
+	</head>
+	<table border="1">
+		<tr>
+			<td width="100" id = "AddFruit" height = "50">
+				<input type="checkbox" name="fruit" value="Apple" id="1" style><i>Apple</i><br><br>
+				<input type="checkbox" name="fruit" value="mango" id="2"><i>Mango</i><br><br>
+
+				<input type="checkbox" name="grape" value="grape" id="3"><i>Grape</i><br><br>
+				<input type="checkbox" name="strawberry" value="strawberry" id="4"><i>Strawberry</i><br><br>
+				<input type="checkbox" name="cherry" value="cherry" id="5"><i>Cherry</i><br><br>
+				
+			</td>
+			<td width="100" id = "inside" height="50">
+				<p></p>
+				<!-- <p id="11"></p>
+				<p id="22"> </p>
+				<p id="33"> </p> 
+				<p id="44"> </p>
+				<p id="55"> </p> -->
+
+				<td>
+		</tr>
+			<td>
+			<input type="button" value="Press" id="bton">
+			</td>
+
+		</table>
+				
+				<script type="text/javascript">
+//document.getElementsByTagName('input').addEventListener("click", compare);
+				var j =document.getElementById("bton");
+				document.getElementById("bton").addEventListener("click",promp);
+
+				function promp() {
+				var enter= prompt("please enter a appropriate fruit");
+				var create=document.createElement("b");
+				console.log(create);
+				var fruitNode=document.createTextNode(enter);
+				console.log(fruitNode);
+
+				var check= document.createElement("input");
+				console.log(check);
+				check.setAttribute("type","checkbox");
+				create.appendChild(fruitNode);
+
+				var row= document.getElementsByTagName('input');
+				console.log(row);
+				var colmun = document.getElementById("AddFruit");
+				console.log(colmun);
+							AddFruit.appendChild(check);
+							AddFruit.appendChild(create);
+							console.log(row);
+
+				for(var i=0; i<row.length;i++) 
+				{
+			//console.log(c[i].value);
+
+ 				row[i].addEventListener("click",compare);
+
+				} 
+			}
+				function compare() {
+					if(this.checked){
+		 
+						var createOne = document.createElement("p");
+						console.log(createOne);
+						var createSib =document.createTextNode(this.nextSibling.innerHTML);
+						console.log(createSib);
+						createOne.appendChild(createSib);
+						document.getElementById("inside").appendChild(createOne);
+					}
+					else
+					{
+						var creatTag = document.getElementsByTagName("p");
+						console.log(creatTag);
+								//console.log(this.nextSibling.innerHTML);
+									//console.log(p3[j].innerHTML);
+								
+								for(var j=0 ; j < creatTag.length; j++)
+
+								{
+
+									if(this.nextSibling.innerHTML === creatTag[j].innerHTML)
+									{
+										document.getElementById("inside").removeChild(creatTag[j]);
+									}
+								}
+							}	
+						}
+
+		
+
+</script>
+</body>
+</html>
