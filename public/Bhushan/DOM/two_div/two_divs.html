@@ -1,0 +1,64 @@
+
+<html>
+<head>
+	<title> two different divs </title>
+		<style type="text/css">
+		#btedit{
+			visibility: hidden;
+		}
+		#formDiv{
+			float: left;
+			margin: 50px; 
+		}
+		#viewDiv{
+			float: left;
+			margin: 50px;
+		}
+	</style>
+</head>
+	<body>
+		<div id = "formDiv">
+			<span>firstName  : </span><br>
+			<input type = "text" id = "fn"><br>
+			<span>lastName : </span><br>
+			<input type = "text" id = "ln"><br>
+			<span> state :</span><br>
+				<select id = "selectState">
+					<option value = "NewJersy"> NewJersy </option>	
+					<option value = "Penn"> Pennsylvanai </option>
+					<option value = "Californai"> california </option>
+					<option value = "NewYork"> NewYork</option>
+				</select><br>
+				<input type = "button" name = "save" id = "btsave" value = "save"></button><br>
+		</div>
+		<div id = "viewDiv">
+			<input type = "button" name = "edit" id ="btedit" value = "edit"></button><br>
+		</div>
+		<script type="text/javascript">
+			document.getElementById("btsave").addEventListener("click",confirm);
+
+				function confirm(){
+					var firstName = document.getElementById("fn").value;
+					var lastName = document.getElementById("ln").value;
+					var selectState = document.getElementById("selectState").value;
+
+					document.getElementById("viewDiv").innerHTML += "firstName :  " + firstName + "</br>";
+					document.getElementById("viewDiv").innerHTML += "lastName : " + lastName + "</br>";
+					document.getElementById("viewDiv").innerHTML += "selectState : " + selectState + "</br>";
+
+					document.getElementById("fn").value = "";
+					document.getElementById("ln").value = "";
+					document.getElementById("selectState").value = "";
+					document.getElementById("btedit").style.visibility = "visible";
+				}
+
+				//document.getElementById("btedit").addEventListener("click",reset);
+				// var renew =  function (){
+				// 		document.getElementById("fn").value = document.getElementById("viewDiv").
+				// 		document.getElementById("ln").value = document.getElementById("viewDiv")[1].reset();
+				// 		document.getElementById("selectState").value = document.getElementById("viewDiv");
+				// }
+
+		</script>
+	</body>
+</html>
