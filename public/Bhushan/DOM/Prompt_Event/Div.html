@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table,td {
+	border: 1px solid black;
+	/*border-collapse: collapse;*/
+}
+td{
+	width:40%;
+	padding: 15px;
+	float: left;
+	
+}
+</style>
+</head>
+<body>
+<table width = "50%" height = "100%" > <!-- style="width:40%" --> 
+	<tr>
+		<td>
+		<div id="div1">
+			<div id="divInput"> 
+				<div><input type="checkbox" name="apple" value=""><span>Apple</span></div><br>
+				<div><input type="checkbox" name="mango" value=""><span>Mango</span></div><br>
+				<div><input type="checkbox" name="grape" value=""><span>Grape</span></div><br>
+				<div><input type="checkbox" name="strawberry" value=""><span>Strawberry</span></div><br>
+				<div><input type="checkbox" name="cherry" value=""><span>Cherry</span></div><br>
+			</div>
+			<div>
+				<button> Add Fruit </button>
+			</div>
+		</div>
+		</td>
+
+		<td>
+			<div id="div2">
+			</div>
+		</td>
+	</tr>
+</table>
+<script>
+document.getElementById("div1").addEventListener("click", show);
+function show(event)
+{
+	var select = event.target;
+	var boolValue;
+	var textValue;
+	if(select.nodeName === "INPUT" || select.nodeName === "SPAN")
+	{
+		if(select.nodeName === "SPAN")
+		{
+			if(select.previousSibling.checked === true)
+			{
+				textValue = select.innerHTML;
+				boolValue = false;
+				select.previousSibling.checked = false;
+			}
+			else if(select.previousSibling.checked === false)
+			{
+				textValue = select.innerHTML;
+				boolValue = true;
+				select.previousSibling.checked = true;
+			}
+		}
+		
+		else if(select.nodeName === "INPUT")
+		{
+			if(select.checked === false)
+			{
+				textValue = select.nextSibling.innerHTML;
+				boolValue = false;
+			}
+			else if(select.checked === true)
+			{
+				textValue = select.nextSibling.innerHTML;
+				boolValue = true;
+			}
+		}
+		if(boolValue === false)
+		{
+			var l = document.getElementsByTagName("li");
+			for(i=0; i<l.length; i++)
+			{
+				if(l[i].innerHTML === textValue)
+				{
+					l[i].remove();
+				}
+			}
+		}
+		else if(boolValue === true)
+		{
+			var create_ul = document.createElement("ul");
+			var create_li = document.createElement("li");
+			var create_tv = document.createTextNode(textValue); 
+			create_ul.setAttribute("style", "list-style-type:none");
+			create_li.appendChild(create_tv);
+			create_ul.appendChild(create_li);
+			document.getElementById("div2").appendChild(create_ul);	
+		}
+	}
+	else if(select.nodeName === "BUTTON")
+	{
+		var fruit = prompt("Enter a fruit name");
+		if(fruit !== "" && fruit !== null)
+		{
+			var create_check = document.createElement("input");
+			var create_br = document.createElement("br");
+			var create_span = document.createElement("span");
+			var create_span_text = document.createTextNode(fruit);
+			var create_div = document.createElement("div");
+			create_check.setAttribute("type", "checkbox");
+			create_span.appendChild(create_span_text);
+			create_div.appendChild(create_check);
+			create_div.appendChild(create_span);
+			document.getElementById("divInput").appendChild(create_div);
+			document.getElementById("divInput").appendChild(create_br);
+		}
+		
+	}
+}
+</script>
+</body>
+</html>
