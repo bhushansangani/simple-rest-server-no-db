@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>First Form Request to server</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+</head>
+<h2> Using Ajax GET All Respond Form The Server !! </h2>
+
+<body>
+    <form method="post" action="/checks">
+        First Name:
+        <input type="text" name="firstname">
+        <br /> Last Name:
+        <input type="text" name="lastname">
+        <br />
+        <input type="button" name="print" value="printValue">
+    </form>
+    <div id="myDiv">
+        <script>
+        $(document).ready(function(e) {
+            var printData = function(event) {
+                event.preventDefault();
+                var inputs = $("input");
+                console.log(inputs);
+                inputs.each(function(i, element) {
+                    var fname = $(this).attr('name');
+                    console.log(fname);
+                    if (fname == 'firstname') {
+                        firstName = $(this).val();
+                    } else if (fname == 'lastname') {
+                        lastName = $(this).val();
+                    }
+                }); // end of each function
+                // Here POST data into the url firstName and LastName ...
+
+
+                $.ajax({
+                    url: "/checks",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        firstName,
+                        lastName
+                    },
+                    // success: function(response, status){
+                    // 	console.log(response, status);
+                    // 	var myDiv = $('<div></div>');
+                    // 	myDiv.append("<br><p>First Name :  " + response.firstName + "<br>Last Name :  " + response.lastName);
+                    // 	myDiv.insertAfter(button);
+                    //  }
+
+                    success: function(data) {
+
+
+                        $.getJSON('/checks', function(data) {
+                            var items = [];
+                            console.log(items);
+                            console.log("success");
+                            // $("#myDiv").empty();
+                            //  console.log("clear element");
+                            $.each(data, function(key, val) {
+                                items.push("<br>First Name:" + val.firstName + "<br> Last Name:" + val.lastName);
+                                // items.push('<li id = "'+ val.firstName+ '">' +val.lastName + '</li>');
+                                console.log(key, val.firstName, val.lastName);
+                            });
+                            $("<ul/>", {
+                                html: items.join("")
+                            }).appendTo("body");
+
+                        });
+                        // $("div").empty();
+                        // console.log("clear element");
+                        // console.log(response);
+                        // var myDiv = $('<div></div>');
+                        // myDiv.append("<br><p>First Name :  " + response.firstName + "<br>Last Name :  " + response.lastName);
+                        // myDiv.insertAfter(button);
+                    }
+                }); // end of ajax function
+            }; // end of print data function
+            var button = $(":button");
+            console.log(button);
+            button.on('click', printData);
+        });
+        //PRINT ALL JSON DATA SAVED IN SERVER using getJSON and Get
+
+
+        // var jqxhr = $.getJSON('/checks', function(data) {
+        //     console.log("success");
+        //             $("#myDiv").empty();
+        //          console.log("clear element");
+        //     $.each(data, function(key, val) {
+        //         items.push("<br>First Name:" + val.firstName + "<br> Last Name:" + val.lastName);
+        //         console.log(key, val.firstName, val.lastName);
+        //         $("<ul/>", {
+        //             html: items.join("")
+        //         }).appendTo("#myDiv");
+        //     });
+        // })
+        //end of ready function
+        </script>
+    </div>
+</body>
+
+</html>
+<!--  // reference :http://api.jquery.com/jquery.getjson/
+				 //  .done(function() {
+	    //               console.log( "second success" );
+	    //           })
+				 //  .fail(function() {
+					// console.log( "error" );
+				 //  })
+				 //  .always(function() {
+					// console.log( "complete" );
+				 //  });
+				 
+	    //           jqxhr.complete(function() {
+	    //                console.log( "second complete" );
+	    //           });
+			  //.done(function(response, status){
+				//  console.log(response,status);
+			  //});
+		 -->
