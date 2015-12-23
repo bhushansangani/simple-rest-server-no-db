@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Product Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link type="text/css" rel="stylesheet" href="style.css" /> -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="handlebars-v4.0.5.js"></script>
+    <script src="product_get.js"></script>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav role="navigation" class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-target="#navbarCollapse" data-toggle="collapse">
+                    <!-- <span class="sr-only">Toggle navigation</span> -->
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Store</a>
+            </div>
+            <!-- Collection of nav links, forms, and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Store</a></li>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Catalog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- this is part of list -->
+    <div class="list-group">
+        <div class="container col-sm-3">
+            <a href="http://bhushansearch.blogspot.com/" class="list-group-item active">Cras justo odio</a>
+            <a href="http://bhushansearch.blogspot.com/" class="list-group-item">Dapibus ac faclisis in</a>
+            <a href="http://bhushansearch.blogspot.com/" class="list-group-item">Morbi leo risus</a>
+            <a href="http://bhushansearch.blogspot.com/" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="http://bhushansearch.blogspot.com/" class="list-group-item">Vestiburn at eros</a>
+        </div>
+    </div>
+   
+     <!-- this is part of adding items  -->
+    <div class="container col-sm-9" id="d1">
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label for="search">Search:</label>
+                <input type="search" class="form-control" id="search" placeholder="Serach by item name">
+                <br/> </br>
+            </div>
+        </form>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <label for="search">Add Item:</label>
+                <label class="sr-only" for="additem">Add Item:</label>
+                <input type="text" class="form-control" id="itemName" name="itemName" placeholder="Item Name">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="description">Description:</label>
+                <input type="text" class="form-control" id="itemDescription" name="itemDescription" placeholder="Description">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="price">Price:</label>
+                <input type="text" class="form-control" id="itemPrice" name="itemPrice" placeholder="Price">
+            </div>
+            <button type="submit" class="btn btn-primary" id="add">Add</button>
+            <!--<span class="error" style="display:none"> Please Enter Valid Data</span>-->
+        </form>
+    </div>
+    <!-- <div id="d1">
+        class="container-fluid content two alt">
+    </div> -->
+    </div>
+    <!-- Template -->
+    <script id="get-template" type="text/x-handlebars-template">
+        {{#each this}}  </br>
+        <div class="well row">  
+            <div class="col-md-8">
+                <h3>{{this.itemName}}</h3>
+                <p>{{this.itemDescription}}</p>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary">{{this.itemPrice}}</button>
+                <a href="#"><span id={{this.id}} class="glyphicon glyphicon-remove-sign"></span></a>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+</body>
+
+</html>
+
+<!-- List -->
+    <!-- <div class="column column1">
+        <div class="content one">
+            <ul class="list-group">
+                <li class="list-group-item active">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+            </ul>
+        </div>
+    </div> -->
+
+     <!-- <div class="column column2"> -->
+    <!--  <div class="content two"> -->
+    <!-- <form class="form-inline" role="form">
+                <label>Search</label>
+                <input type="text" class="form-control" placeholder="Search by item name" />
+                <br/></br>
+                <label>Add Item</label>
+                <input type="text" class="form-control" name="itemName" placeholder="Item Name" />
+                <input type="text" class="form-control" name="itemDescription" placeholder="Description" />
+                <input type="number" class="form-control" name="itemPrice" placeholder="Price" />
+                <button type="submit" class="btn btn-default">Add</button>
+            </form> -->
